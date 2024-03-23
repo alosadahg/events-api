@@ -1,19 +1,14 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.User;
+import com.example.demo.model.user.User;
 import com.example.demo.service.UserService;
-
-import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -35,8 +30,7 @@ public class UserController {
 	}
 
     @PostMapping("/add")
-    public String addUser(User newuser, HttpServletResponse response) {
+    public String addUser(User newuser) {
         return userService.add(newuser);
     }
-    
 }
