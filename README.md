@@ -53,12 +53,12 @@ GET: https://events-api-iuta.onrender.com/attend-event/view-all
 ## Transaction: User is interested in the event
 POST: https://events-api-iuta.onrender.com/attend-event/interested  
 Request Body Parameters  
-userid: Text
+userid: Text  
 eventid: Text
 
 ## Transaction: User is approved for the event
 POST: https://events-api-iuta.onrender.com/attend-event/approved  
 Request Body Parameters  
-userid: Text
+userid: Text  
 eventid: Text
 
