@@ -11,6 +11,8 @@ import com.example.demo.model.user.User;
 import com.example.demo.service.UserService;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -35,7 +37,17 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public Integer loginUser(User user) {
+    public String loginUser(User user) {
         return userService.login(user);
+    }
+
+    @PostMapping("/view") 
+    public String getUser(String email) {
+        return userService.getAUser(email);
+    }
+
+    @PutMapping("/update-status")
+    public String updateUserType(String email, String status) {
+        return userService.updateUserType(email, status);
     }
 }
