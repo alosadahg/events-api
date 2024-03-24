@@ -28,7 +28,7 @@ public class UserService {
 				return "User already exists.";
 			}
 		}
-		return "Incomplete user data";
+		return "Transaction failed";
 	}
 
 	public String login(User u) {
@@ -36,7 +36,7 @@ public class UserService {
 		if(!user.isEmpty()) {
 			return user.get(0).toString();
 		} 
-		return "0";
+		return "Login failed";
 	}
 
 	public String getAUser(String email) {

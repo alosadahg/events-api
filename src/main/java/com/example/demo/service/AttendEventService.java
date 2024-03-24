@@ -18,14 +18,24 @@ public class AttendEventService {
         return attendeventrepo.findAll();
     }
 
-    public String add(AttendEvent data) {
-        if(attendeventrepo.findByEventidAndUserid(data.getEventid(), data.getUserid()).isEmpty()) {
-            if(data != null) {
-                attendeventrepo.save(data);
-                return "User " + data.getUserid()+ " added record with event " + data.getEventid();
-            }
+    public String addToPending(Integer userid, Integer eventid) {
+        if(attendeventrepo.findByEventidAndUserid(eventid, userid).isEmpty()) {
+            AttendEvent newRecord = new AttendEvent(eventid, userid, "interested");
+            attendeventrepo.save(newRecord);
+            return newRecord.toString();
         }
-        return "User " + data.getUserid() + " has existing record in event " + data.getEventid();
+        return "Transaction failed. User has existing record.";
     }
 
+    public String addToApproved(Integer userid, Integer eventid) {
+        if(!attendeventrepo.findByEventidAndUserid(eventid, userid).isEmpty()) {
+            AttendEvent record = attendeventrepo.findByEventidAndUserid(eventid, userid).get(0);
+            record.setStatus("approved");
+            attendeventrepo.save(record);
+            return record.toString();
+        }
+        return "Transaction failed. User has no record.";
+    }
+
+    
 }

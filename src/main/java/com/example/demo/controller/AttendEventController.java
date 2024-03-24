@@ -28,9 +28,14 @@ public class AttendEventController {
         return attendEventService.getAll();
     }
 
-    @PostMapping("/add")
-    public String add(AttendEvent data) {
-        return attendEventService.add(data);
+    @PostMapping("/interested")
+    public String setPending(Integer userid, Integer eventid) {
+        return attendEventService.addToPending(userid, eventid);
+    }
+
+    @PostMapping("/approved")
+    public String setApproved(Integer userid, Integer eventid) {
+        return attendEventService.addToApproved(userid, eventid);
     }
     
 }

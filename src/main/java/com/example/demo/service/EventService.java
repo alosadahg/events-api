@@ -21,8 +21,8 @@ public class EventService {
     public String add(Event e) {
         if(e!=null) {
             eventRepo.save(e);
-            return "Event added successfully";
+            return e.toString();
         }
-        return "Incomplete event details";
+        return "Transaction failed";
     }
 }

@@ -49,3 +49,16 @@ status: Text (ongoing, upcoming, cancelled, finished)
 # AttendEvent
 ## Transaction: View all attendee ids and corresponding event ids  
 GET: https://events-api-iuta.onrender.com/attend-event/view-all  
+
+## Transaction: User is interested in the event
+POST: https://events-api-iuta.onrender.com/attend-event/interested  
+Request Body Parameters  
+userid: Text
+eventid: Text
+
+## Transaction: User is approved for the event
+POST: https://events-api-iuta.onrender.com/attend-event/approved  
+Request Body Parameters  
+userid: Text
+eventid: Text
+
