@@ -25,10 +25,10 @@ Request Body Parameters
 email: Text  
 
 ## Transation: Update user type
-PUT: https://events-api-iuta.onrender.com/user/view  
+PUT: https://events-api-iuta.onrender.com/user/update-status  
 Request Body Parameters  
 email: Text  
-user_type: Text(user, admin, organizer, pending)  
+status: Text(user, admin, organizer, pending)  
 
 
 # Event
