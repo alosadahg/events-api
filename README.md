@@ -2,11 +2,10 @@
 
 # User
 ## Transaction: View all users
-GET: https://events-api-iuta.onrender.com/user/view-all
-Transaction: Add a user
+GET: https://events-api-iuta.onrender.com/user/view-all  
 
 ## Transaction: Add a user
-POST: https://events-api-iuta.onrender.com/user/add
+POST: https://events-api-iuta.onrender.com/user/add  
 Request Body Parameters
 firstname: Text
 lastname: Text
