@@ -24,12 +24,13 @@ public class Event {
     private Integer[] participants;
     private Integer[] reviews;
     private String status;
+    private String thumbnail;
 
     public Event() {
     }
 
     public Event(String eventname, Integer organizer, String description, String location, LocalDate startdate,
-            LocalDate enddate, String status) {
+            LocalDate enddate, String status, String thumbnail) {
         this.eventname = eventname;
         this.organizer = organizer;
         this.description = description;
@@ -40,6 +41,7 @@ public class Event {
         setParticipants(new Integer[0]);
         setReviews(new Integer[0]);
         this.status = status;
+        this.thumbnail = thumbnail;
     }
 
     public Integer getEid() {
@@ -130,6 +132,14 @@ public class Event {
         this.status = status;
     }
 
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
     @Override
     public String toString() {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -143,6 +153,9 @@ public class Event {
             }
             if (reviews == null) {
                 reviews = new Integer[0];
+            }
+            if (thumbnail == null) {
+                thumbnail = "";
             }
             return objectMapper.writeValueAsString(this);
         } catch (JsonProcessingException e) {

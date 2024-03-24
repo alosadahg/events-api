@@ -1,64 +1,64 @@
 # API Links and Parameters
 
 # User
-## Transaction: View all users
-GET: https://events-api-iuta.onrender.com/user/view-all  
+## Transaction:View all users
+GET:https://events-api-iuta.onrender.com/user/view-all  
 
-## Transaction: Add a user
-POST: https://events-api-iuta.onrender.com/user/add  
+## Transaction:Add a user
+POST:https://events-api-iuta.onrender.com/user/add  
 Request Body Parameters  
-firstname: Text  
-lastname: Text  
-email: Text  
-password: Text  
-user_type: Text(user, admin, organizer, pending)  
+firstname:Text  
+lastname:Text  
+email:Text  
+password:Text  
+user_type:Text(user, admin, organizer, pending)  
 
-## Transaction: Login
-POST: https://events-api-iuta.onrender.com/user/login  
+## Transaction:Login
+POST:https://events-api-iuta.onrender.com/user/login  
 Request Body Parameters   
-email: Text  
-password: Text  
+email:Text  
+password:Text  
 
-## Transaction: View user info
-POST: https://events-api-iuta.onrender.com/user/view  
+## Transaction:View user info
+POST:https://events-api-iuta.onrender.com/user/view  
 Request Body Parameters   
-email: Text  
+email:Text  
 
-## Transation: Update user type
-PUT: https://events-api-iuta.onrender.com/user/update-status  
+## Transation:Update user type
+PUT:https://events-api-iuta.onrender.com/user/update-status  
 Request Body Parameters  
-email: Text  
-status: Text(user, admin, organizer, pending)  
+email:Text  
+status:Text(user, admin, organizer, pending)  
 
 
 # Event
-## Transaction: View all events
-GET: https://events-api-iuta.onrender.com/event/view-all  
+## Transaction:View all events
+GET:https://events-api-iuta.onrender.com/event/view-all  
 
-## Transaction: Add an event
-POST: https://events-api-iuta.onrender.com/event/add   
+## Transaction:Add an event
+POST:https://events-api-iuta.onrender.com/event/add   
 Request Body Parameters  
-eventname: Text  
-organizer: Text  
-description: Text  
-location: Text  
-startdate: Date(yyyy-mm-dd)  
-enddate: Date(yyyy-mm-dd)  
-status: Text (ongoing, upcoming, cancelled, finished)  
+eventname:Text  
+organizer:Text  
+description:Text  
+location:Text  
+startdate:yyyy-mm-dd 
+enddate:yyyy-mm-dd 
+status:Text (ongoing, upcoming, cancelled, finished)  
 
 # AttendEvent
-## Transaction: View all attendee ids and corresponding event ids  
-GET: https://events-api-iuta.onrender.com/attend-event/view-all  
+## Transaction:View all attendee ids and corresponding event ids  
+GET:https://events-api-iuta.onrender.com/attend-event/view-all  
 
-## Transaction: User is interested in the event
-POST: https://events-api-iuta.onrender.com/attend-event/interested  
+## Transaction:User is interested in the event
+POST:https://events-api-iuta.onrender.com/attend-event/interested  
 Request Body Parameters  
-userid: Text  
-eventid: Text
+userid:Text  
+eventid:Text
 
-## Transaction: User is approved for the event
-POST: https://events-api-iuta.onrender.com/attend-event/approved  
+## Transaction:User is approved for the event
+POST:https://events-api-iuta.onrender.com/attend-event/approved  
 Request Body Parameters  
-userid: Text  
-eventid: Text
+userid:Text  
+eventid:Text
 
