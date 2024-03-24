@@ -28,7 +28,7 @@ public class UserService {
 				return "User already exists.";
 			}
 		}
-		return "Incomplete user data.";
+		return "Incomplete user data";
 	}
 
 	public Integer login(User u) {
