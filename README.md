@@ -1,7 +1,7 @@
 # API Links and Parameters
 
 # User
-# Transaction: View all users
+## Transaction: View all users
 GET: https://events-api-iuta.onrender.com/user/view-all
 Transaction: Add a user
 
