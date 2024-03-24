@@ -47,5 +47,5 @@ enddate: Date(yyyy-mm-dd)
 status: Text (ongoing, upcoming, cancelled, finished)  
 
 # AttendEvent
-## Transaction: View all attendee ids and corresposding event ids  
+## Transaction: View all attendee ids and corresponding event ids  
 GET: https://events-api-iuta.onrender.com/attend-event/view-all  
