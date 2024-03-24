@@ -28,7 +28,7 @@ public class EventController {
 		return eventService.getAllEvents();
 	}
 
-    @PostMapping("add")
+    @PostMapping("/add")
     public String addEvent(Event event) {
         return eventService.add(event);
     }
