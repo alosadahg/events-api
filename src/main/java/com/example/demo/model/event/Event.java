@@ -3,6 +3,9 @@ package com.example.demo.model.event;
 import java.time.LocalDate;
 import java.util.Arrays;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -101,9 +104,12 @@ public class Event {
     }
     @Override
     public String toString() {
-        return "Event [eid=" + eid + ", eventname=" + eventname + ", organizer=" + organizer + ", description="
-                + description + ", location=" + location + ", startdate=" + startdate + ", enddate=" + enddate
-                + ", upvotes=" + upvotes + ", participants=" + Arrays.toString(participants) + ", reviews="
-                + Arrays.toString(reviews) + ", status=" + status + "]";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace(); 
+            return "transaction failed";
+        }
     }
 }

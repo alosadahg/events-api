@@ -1,5 +1,8 @@
 package com.example.demo.model.attendevent;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -44,6 +47,12 @@ public class AttendEvent {
     }
     @Override
     public String toString() {
-        return "AttendEvent [id=" + id + ", eventid=" + eventid + ", userid=" + userid + ", status=" + status + "]";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace(); 
+            return "transaction failed";
+        }
     }
 }

@@ -1,5 +1,8 @@
 package com.example.demo.model.user;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -89,8 +92,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [uid=" + uid + ", firstname=" + firstname + ", email=" + email + ", password=" + password
-                + ", user_type=" + user_type + ", lastname=" + lastname + "]";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(this);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace(); 
+            return "transaction failed";
+        }
     }
 
 }
