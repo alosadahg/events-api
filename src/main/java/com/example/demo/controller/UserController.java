@@ -33,4 +33,9 @@ public class UserController {
     public String addUser(User newuser) {
         return userService.add(newuser);
     }
+
+    @PostMapping("/login")
+    public Integer loginUser(User user) {
+        return userService.login(user);
+    }
 }

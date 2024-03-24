@@ -31,4 +31,11 @@ public class UserService {
 		return "Incomplete user data.";
 	}
 
+	public Integer login(User u) {
+		if(!userRepo.findByEmailAndPassword(u.getEmail(), u.getPassword()).isEmpty()) {
+			return 1;
+		} 
+		return 0;
+	}
+
 }
