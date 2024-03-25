@@ -42,7 +42,7 @@ firstname:Text
 lastname:Text  
 email:Text  
 password:Text  
-Returns: JSON if successful, String if failed  
+Returns: 0 if failed, 1 if successful  
   
 # Event
 ## Transaction: View all events
@@ -79,7 +79,7 @@ PUT:https://events-api-iuta.onrender.com/event/upvote
 Request Body Parameters
 eventid:Text 
 Returns: JSON if successful, String if failed  
-
+  
 ## Transaction: Update event information
 PUT:https://events-api-iuta.onrender.com/event/update-event-info   
 Request Body Parameters  
@@ -90,7 +90,13 @@ location:Text
 startdate:yyyy-mm-dd 
 enddate:yyyy-mm-dd 
 status:Text (ongoing, upcoming, cancelled, finished)  
-Returns: JSON if successful, String if failed 
+Returns: 0 if failed, 1 if successful  
+  
+## Transaction: Delete an event
+PUT:https://events-api-iuta.onrender.com/event/delete
+Request Body Parameters
+eventid:Text 
+Returns: 0 if failed, 1 if successful  
   
 # AttendEvent
 ## Transaction: View all attendee ids and corresponding event ids  

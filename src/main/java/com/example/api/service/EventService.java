@@ -70,9 +70,9 @@ public class EventService {
         return "Transaction failed";
     }
 
-    public String updateEvent(Event e) {
+    public int updateEvent(Event e) {
         if(e!=null) {
-            Event event = eventRepo.findById(e.getEid()).get();
+            Event event = eventRepo.findById(e.getEid().intValue()).get();
             event.setEventname(e.getEventname());
             event.setDescription(e.getDescription());
             event.setEnddate(e.getEnddate());
@@ -82,8 +82,22 @@ public class EventService {
             event.setThumbnail(e.getThumbnail());
             event.setStatus(e.getStatus());
             eventRepo.save(event);
-            return event.toString();
+            return 1;
         }
-        return "No record found.";
+        return 0;
+    }
+
+    public List<Event> getByOrganizer(Integer organizer) {
+        return eventRepo.findByOrganizer(organizer);
+    }
+
+    public int deleteEvent(Integer eventid){
+        if(eventid!=null) {
+            if(eventRepo.existsById(eventid)) {
+                eventRepo.deleteById(eventid);
+                return 1;
+            }
+        }
+        return 0;
     }
 }

@@ -56,7 +56,17 @@ public class EventController {
     }
 
     @PutMapping("/update-event-info")
-    public String updateEvent(Event e){
+    public int updateEvent(Event e){
         return eventService.updateEvent(e);
+    }
+
+    @PostMapping("/view-by-organizer")
+    public List<Event> viewByOrganizer(Integer organizerid){
+        return eventService.getByOrganizer(organizerid);
+    }
+
+    @PutMapping("/delete")
+    public int deleteEvent(Integer eventid){
+        return eventService.deleteEvent(eventid);
     }
 }
