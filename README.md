@@ -77,7 +77,7 @@ eventid:Text
 
 # Reviews
 ## Transaction:View all reviews by event id
-GET:https://events-api-iuta.onrender.com/reviews/view  
+GET:https://events-api-iuta.onrender.com/reviews/view-by-event  
 Request Body Parameters
 eventid:Text
 
@@ -88,3 +88,8 @@ userid:Text
 eventid:Text
 review:Text
 
+## Transaction:View a review from a user and event
+GET:https://events-api-iuta.onrender.com/reviews/view  
+Request Body Parameters
+userid:Text
+eventid:Text

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.example.demo.model.review.Review;
 import com.example.demo.service.ReviewService;
@@ -25,7 +24,7 @@ public class ReviewController {
     }
 
     @GetMapping("/view-by-event")
-    public String getReviewsByEID(@RequestBody Integer eventid) {
+    public String getReviewsByEID(Integer eventid) {
         return reviewService.getByEID(eventid);
     }
 
