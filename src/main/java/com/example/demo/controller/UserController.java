@@ -37,12 +37,12 @@ public class UserController {
         return userService.add(newuser);
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     public String loginUser(User user) {
         return userService.login(user);
     }
 
-    @PostMapping("/view") 
+    @GetMapping("/view") 
     public String getUser(String email) {
         return userService.getAUser(email);
     }

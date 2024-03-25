@@ -14,13 +14,13 @@ password:Text
 user_type:Text(user, admin, organizer, pending)  
 
 ## Transaction:Login
-POST:https://events-api-iuta.onrender.com/user/login  
+GET:https://events-api-iuta.onrender.com/user/login  
 Request Body Parameters   
 email:Text  
 password:Text  
 
 ## Transaction:View user info
-POST:https://events-api-iuta.onrender.com/user/view  
+GET:https://events-api-iuta.onrender.com/user/view  
 Request Body Parameters   
 email:Text  
 
@@ -46,6 +46,19 @@ startdate:yyyy-mm-dd
 enddate:yyyy-mm-dd 
 status:Text (ongoing, upcoming, cancelled, finished)  
 
+## Update event status
+PUT:https://events-api-iuta.onrender.com/event/update-status
+Request Body Parameters  
+eventid:Text  
+status:Text  
+
+## Update event thumbnail
+PUT:https://events-api-iuta.onrender.com/event/update-thumbnail
+Request Body Parameters  
+eventid:Text  
+thumbnail:Text   
+
+
 # AttendEvent
 ## Transaction:View all attendee ids and corresponding event ids  
 GET:https://events-api-iuta.onrender.com/attend-event/view-all  
@@ -57,7 +70,7 @@ userid:Text
 eventid:Text
 
 ## Transaction:User is approved for the event
-POST:https://events-api-iuta.onrender.com/attend-event/approved  
+PUT:https://events-api-iuta.onrender.com/attend-event/approved  
 Request Body Parameters  
 userid:Text  
 eventid:Text

@@ -9,4 +9,5 @@ public interface EventRepository extends JpaRepository<Event,Integer> {
     List<Event> findByLocation(String location);
     List<Event> findByStartdate(LocalDate startdate);
     List<Event> findByStatus(String status);
+    List<Event> findByEid(Integer eid);
 }

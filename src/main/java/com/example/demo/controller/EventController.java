@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.event.Event;
 import com.example.demo.service.EventService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
@@ -35,4 +36,13 @@ public class EventController {
         return eventService.add(event);
     }
     
+    @PutMapping("/update-status")
+    public String updateStatus(Integer eventid, String status) {
+        return eventService.cancel(eventid, status);
+    }
+
+    @PutMapping("/update-thumbnail")
+    public String updateThumbnail(Integer eventid, String thumbnail) {
+        return eventService.updateThumbnail(eventid, thumbnail);
+    }
 }

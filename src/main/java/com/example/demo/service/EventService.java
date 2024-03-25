@@ -25,4 +25,32 @@ public class EventService {
         }
         return "Transaction failed";
     }
+
+    public String cancel(Integer eid, String status) {
+        if(eid!=null) {
+            List<Event> eList = eventRepo.findByEid(eid);
+            if(!eList.isEmpty()) {
+                Event event = eList.get(0);
+                event.setStatus(status);
+                eventRepo.save(event);
+                return event.toString();
+            }
+            return "No event record found";
+        }
+        return "Transaction failed";
+    }
+
+    public String updateThumbnail(Integer eid, String thumbnail) {
+        if(eid!=null) {
+            List<Event> eList = eventRepo.findByEid(eid);
+            if(!eList.isEmpty()) {
+                Event event = eList.get(0);
+                event.setThumbnail(thumbnail);
+                eventRepo.save(event);
+                return event.toString();
+            }
+            return "No event record found";
+        }
+        return "Transaction failed";
+    }
 }

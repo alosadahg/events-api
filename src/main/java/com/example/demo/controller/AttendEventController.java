@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.model.attendevent.AttendEvent;
 import com.example.demo.service.AttendEventService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 @RestController
@@ -35,7 +36,7 @@ public class AttendEventController {
         return attendEventService.addToPending(userid, eventid);
     }
 
-    @PostMapping("/approved")
+    @PutMapping("/approved")
     public String setApproved(Integer userid, Integer eventid) {
         return attendEventService.addToApproved(userid, eventid);
     }
