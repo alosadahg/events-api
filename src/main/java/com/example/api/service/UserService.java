@@ -59,4 +59,18 @@ public class UserService {
 		}
 		return "User not found";
 	}
+
+	public String updateUser(User user) {
+		User u = userRepo.findById(user.getUid()).get();
+		if(u!=null) {
+			u.setEmail(user.getEmail());
+			u.setFirstname(user.getFirstname());
+			u.setLastname(user.getLastname());
+			u.setPassword(user.getPassword());
+			userRepo.save(u);
+			return u.toString();
+		}
+		return "No record found";
+	}
+
 }

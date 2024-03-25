@@ -51,4 +51,9 @@ public class UserController {
     public String updateUserType(String email, String status) {
         return userService.updateUserType(email, status);
     }
+
+    @PutMapping("/update-user-info")
+    public String updateUserInfo(User user) {
+        return userService.updateUser(user);
+    }
 }

@@ -54,4 +54,9 @@ public class EventController {
     public String upvote(Integer eventid) {
         return eventService.upvote(eventid);
     }
+
+    @PutMapping("/update-event-info")
+    public String updateEvent(Event e){
+        return eventService.updateEvent(e);
+    }
 }

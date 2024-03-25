@@ -69,4 +69,21 @@ public class EventService {
         }
         return "Transaction failed";
     }
+
+    public String updateEvent(Event e) {
+        if(e!=null) {
+            Event event = eventRepo.findById(e.getEid()).get();
+            event.setEventname(e.getEventname());
+            event.setDescription(e.getDescription());
+            event.setEnddate(e.getEnddate());
+            event.setStartdate(e.getStartdate());
+            event.setOrganizer(e.getOrganizer());
+            event.setLocation(e.getLocation());
+            event.setThumbnail(e.getThumbnail());
+            event.setStatus(e.getStatus());
+            eventRepo.save(event);
+            return event.toString();
+        }
+        return "No record found.";
+    }
 }
