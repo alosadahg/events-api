@@ -56,6 +56,4 @@ public class UserController {
     public int updateUserInfo(User user) {
         return userService.updateUser(user);
     }
-
-
 }

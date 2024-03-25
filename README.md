@@ -94,7 +94,6 @@ PUT:https://events-api-iuta.onrender.com/event/update-event-info
 Request Body Parameters  
 eid:Text
 eventname:Text  
-organizer:Text  
 description:Text  
 location:Text  
 startdate:yyyy-mm-dd 
@@ -114,7 +113,7 @@ GET:https://events-api-iuta.onrender.com/attend-event/view-all
 Returns: JSON
   
 ## Transaction: View all interested and approved events by user  
-POST:https://events-api-iuta.onrender.com/attend-event/view-by-user
+POST:https://events-api-iuta.onrender.com/attend-event/view-by-user  
 Request Body Parameters
 userid:Text  
 Returns: JSON

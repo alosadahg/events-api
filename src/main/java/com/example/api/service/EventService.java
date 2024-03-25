@@ -77,9 +77,7 @@ public class EventService {
             event.setDescription(e.getDescription());
             event.setEnddate(e.getEnddate());
             event.setStartdate(e.getStartdate());
-            event.setOrganizer(e.getOrganizer());
             event.setLocation(e.getLocation());
-            event.setThumbnail(e.getThumbnail());
             event.setStatus(e.getStatus());
             eventRepo.save(event);
             return 1;

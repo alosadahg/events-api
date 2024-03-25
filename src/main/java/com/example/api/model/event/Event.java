@@ -56,6 +56,8 @@ public class Event {
         this.thumbnail = thumbnail;
     }
 
+    
+
     public Event(Integer eid, String eventname, String description, String location,
             LocalDate startdate, LocalDate enddate, String status) {
         this.eid = eid;
