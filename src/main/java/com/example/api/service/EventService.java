@@ -92,12 +92,12 @@ public class EventService {
     }
 
     public int deleteEvent(Integer eventid){
-        if(eventid!=null) {
-            if(eventRepo.existsById(eventid)) {
-                eventRepo.deleteById(eventid);
-                return 1;
-            }
+        if(eventid!=null){
+        if(eventRepo.existsById(eventid)) {
+            eventRepo.deleteById(eventid);
+            return 1;
         }
+    }
         return 0;
     }
 }
