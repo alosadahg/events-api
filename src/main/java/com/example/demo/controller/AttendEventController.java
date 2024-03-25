@@ -31,6 +31,11 @@ public class AttendEventController {
         return attendEventService.getAll();
     }
 
+    @GetMapping("/view-by-user")
+    public List<AttendEvent> getByUser(Integer userid) {
+        return attendEventService.getByUser(userid);
+    }
+
     @PostMapping("/interested")
     public String setPending(Integer userid, Integer eventid) {
         return attendEventService.addToPending(userid, eventid);

@@ -24,6 +24,10 @@ public class AttendEventService {
         return attendeventrepo.findAll();
     }
 
+    public List<AttendEvent> getByUser(Integer userid) {
+        return attendeventrepo.findByUserid(userid);
+    }
+
     public String addToPending(Integer userid, Integer eventid) {
         if (attendeventrepo.findByEventidAndUserid(eventid, userid).isEmpty()) {
             AttendEvent newRecord = new AttendEvent(eventid, userid, "interested");
