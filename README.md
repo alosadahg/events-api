@@ -16,14 +16,14 @@ user_type:Text(user, admin, organizer, pending)
 Returns: String
 
 ## Transaction: Login
-GET:https://events-api-iuta.onrender.com/user/login  
+POST:https://events-api-iuta.onrender.com/user/login  
 Request Body Parameters   
 email:Text  
 password:Text  
 Returns: JSON if successful, String if failed  
 
 ## Transaction: View user info
-GET:https://events-api-iuta.onrender.com/user/view  
+POST:https://events-api-iuta.onrender.com/user/view  
 Request Body Parameters   
 email:Text  
 Returns: JSON if successful, String if failed  
@@ -76,7 +76,7 @@ GET:https://events-api-iuta.onrender.com/attend-event/view-all
 Returns: JSON
 
 ## Transaction: View all interested and approved events by user  
-GET:https://events-api-iuta.onrender.com/attend-event/view-by-user
+POST:https://events-api-iuta.onrender.com/attend-event/view-by-user
 Request Body Parameters
 userid:Text  
 Returns: JSON
@@ -97,7 +97,7 @@ Returns: JSON if successful, String if failed
 
 # Reviews
 ## Transaction: View all reviews by event id
-GET:https://events-api-iuta.onrender.com/reviews/view-by-event  
+POST:https://events-api-iuta.onrender.com/reviews/view-by-event  
 Request Body Parameters
 eventid:Text
 Returns: JSON if successful, String if failed  
@@ -111,7 +111,7 @@ review:Text
 Returns: JSON if successful, String if failed  
 
 ## Transaction: View a review from a user and event
-GET:https://events-api-iuta.onrender.com/reviews/view  
+POST:https://events-api-iuta.onrender.com/reviews/view  
 Request Body Parameters
 userid:Text
 eventid:Text
