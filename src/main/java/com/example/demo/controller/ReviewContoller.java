@@ -22,9 +22,9 @@ public class ReviewContoller {
         this.reviewService = reviewService;
     }
 
-    @GetMapping("/view-all")
-    public String getReviewsByEID(Integer eid) {
-        return reviewService.getByEID(eid);
+    @GetMapping("/view")
+    public String getReviewsByEID(Integer eventid) {
+        return reviewService.getByEID(eventid);
     }
 
     @PostMapping("/add")

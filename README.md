@@ -75,3 +75,16 @@ Request Body Parameters
 userid:Text  
 eventid:Text
 
+# Reviews
+## Transaction:View all reviews by event id
+GET:https://events-api-iuta.onrender.com/reviews/view  
+Request Body Parameters
+eventid:Text
+
+## Transaction:Add a review
+POST:https://events-api-iuta.onrender.com/reviews/add  
+Request Body Parameters
+userid:Text
+eventid:Text
+review:Text
+
