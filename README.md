@@ -64,7 +64,8 @@ description:Text
 location:Text  
 startdate:yyyy-mm-dd 
 enddate:yyyy-mm-dd 
-status:Text (ongoing, upcoming, cancelled, finished)  
+status:Text (ongoing, upcoming, cancelled, finished) 
+thumbnail:Text 
 Returns: JSON if successful, String if failed  
   
 ## Transaction: Update event status
