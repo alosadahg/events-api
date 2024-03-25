@@ -44,7 +44,7 @@ public class AttendEventService {
             attendeventrepo.save(record);
             if (eventid != null) {
                 Event e = eventRepo.findById(eventid).get();
-                if(e.getParticipants()==null) {
+                if (e.getParticipants() == null) {
                     e.setParticipants(new Integer[0]);
                 }
                 Integer[] participants = e.getParticipants();
@@ -58,4 +58,12 @@ public class AttendEventService {
         return "Transaction failed. No record found.";
     }
 
+    public int cancelAttendInterest(Integer userid, Integer eventid) {
+        AttendEvent record = attendeventrepo.findByEventidAndUserid(eventid, userid).get(0);
+        if (record != null) {
+            attendeventrepo.deleteById(record.getId().intValue());
+            return 1;
+        }
+        return 0;
+    }
 }

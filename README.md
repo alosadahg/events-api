@@ -100,7 +100,7 @@ status:Text (ongoing, upcoming, cancelled, finished)
 Returns: 0 if failed, 1 if successful  
   
 ## Transaction: Delete an event
-PUT:https://events-api-iuta.onrender.com/event/delete
+DELETE:https://events-api-iuta.onrender.com/event/delete
 Request Body Parameters
 eventid:Text 
 Returns: 0 if failed, 1 if successful  
@@ -127,8 +127,15 @@ Returns: JSON if successful, String if failed
 PUT:https://events-api-iuta.onrender.com/attend-event/approved  
 Request Body Parameters  
 userid:Text  
-eventid:Text
+eventid:Text  
 Returns: JSON if successful, String if failed  
+  
+## Transaction: Cancel user interest to attend event
+DELETE:https://events-api-iuta.onrender.com/attend-event/cancel  
+Request Body Parameters
+userid:Text  
+eventid:Text  
+Returns: 0 if failed, 1 if successful  
   
 # Reviews
 ## Transaction: View all reviews by event id
