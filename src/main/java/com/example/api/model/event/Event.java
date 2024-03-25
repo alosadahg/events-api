@@ -44,11 +44,10 @@ public class Event {
         this.thumbnail = thumbnail;
     }
 
-    public Event(Integer eid, String eventname, Integer organizer, String description, String location,
+    public Event(Integer eid, String eventname, String description, String location,
             LocalDate startdate, LocalDate enddate, String status, String thumbnail) {
         this.eid = eid;
         this.eventname = eventname;
-        this.organizer = organizer;
         this.description = description;
         this.location = location;
         this.startdate = startdate;
@@ -57,13 +56,10 @@ public class Event {
         this.thumbnail = thumbnail;
     }
 
-    
-
-    public Event(Integer eid, String eventname, Integer organizer, String description, String location,
+    public Event(Integer eid, String eventname, String description, String location,
             LocalDate startdate, LocalDate enddate, String status) {
         this.eid = eid;
         this.eventname = eventname;
-        this.organizer = organizer;
         this.description = description;
         this.location = location;
         this.startdate = startdate;
