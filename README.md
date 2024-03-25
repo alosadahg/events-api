@@ -114,7 +114,7 @@ GET:https://events-api-iuta.onrender.com/attend-event/view-all
 Returns: JSON
   
 ## Transaction: View all interested and approved events by user  
-POST:https://events-api-iuta.onrender.com/attend-event/view-by-user
+POST:https://events-api-iuta.onrender.com/attend-event/view-by-user  
 Request Body Parameters
 userid:Text  
 Returns: JSON
