@@ -24,7 +24,7 @@ GET:https://events-api-iuta.onrender.com/user/view
 Request Body Parameters   
 email:Text  
 
-## Transation:Update user type
+## Update user type
 PUT:https://events-api-iuta.onrender.com/user/update-status  
 Request Body Parameters  
 email:Text  
