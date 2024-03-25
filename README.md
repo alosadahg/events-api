@@ -38,6 +38,7 @@ Returns: JSON if successful, String if failed
 ## Transaction: Update user information
 PUT:https://events-api-iuta.onrender.com/user/update-user-info  
 Request Body Parameters  
+uid:Text
 firstname:Text  
 lastname:Text  
 email:Text  
@@ -91,6 +92,7 @@ Returns: JSON if successful, String if failed
 ## Transaction: Update event information
 PUT:https://events-api-iuta.onrender.com/event/update-event-info   
 Request Body Parameters  
+eid:Text
 eventname:Text  
 organizer:Text  
 description:Text  
