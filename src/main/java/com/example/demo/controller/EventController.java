@@ -38,11 +38,16 @@ public class EventController {
     
     @PutMapping("/update-status")
     public String updateStatus(Integer eventid, String status) {
-        return eventService.cancel(eventid, status);
+        return eventService.updateStatus(eventid, status);
     }
 
     @PutMapping("/update-thumbnail")
     public String updateThumbnail(Integer eventid, String thumbnail) {
         return eventService.updateThumbnail(eventid, thumbnail);
+    }
+
+    @PutMapping("/upvote")
+    public String upvote(Integer eventid) {
+        return eventService.upvote(eventid);
     }
 }

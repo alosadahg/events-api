@@ -26,11 +26,10 @@ public class EventService {
         return "Transaction failed";
     }
 
-    public String cancel(Integer eid, String status) {
+    public String updateStatus(Integer eid, String status) {
         if(eid!=null) {
-            List<Event> eList = eventRepo.findByEid(eid);
-            if(!eList.isEmpty()) {
-                Event event = eList.get(0);
+            Event event = eventRepo.findById(eid).get();
+            if(event!=null) {
                 event.setStatus(status);
                 eventRepo.save(event);
                 return event.toString();
@@ -42,10 +41,27 @@ public class EventService {
 
     public String updateThumbnail(Integer eid, String thumbnail) {
         if(eid!=null) {
-            List<Event> eList = eventRepo.findByEid(eid);
-            if(!eList.isEmpty()) {
-                Event event = eList.get(0);
+            Event event = eventRepo.findById(eid).get();
+            if(event!=null) {
                 event.setThumbnail(thumbnail);
+                eventRepo.save(event);
+                return event.toString();
+            }
+            return "No event record found";
+        }
+        return "Transaction failed";
+    }
+
+    public String upvote(Integer eid) {
+        if(eid!=null) {
+            Event event = eventRepo.findById(eid).get();
+            if(event!=null) {
+                if(event.getUpvotes()==null) {
+                    event.setUpvotes(0);
+                }
+                int upCount = event.getUpvotes();
+                upCount++;
+                event.setUpvotes(upCount);
                 eventRepo.save(event);
                 return event.toString();
             }

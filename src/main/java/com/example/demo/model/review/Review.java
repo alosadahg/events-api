@@ -13,13 +13,13 @@ public class Review {
     private Integer rid;
     private Integer userid;
     private Integer eventid;
-    private String review;
+    private String reviewtext;
     public Review() {
     }
-    public Review(Integer userid, Integer eventid, String review) {
+    public Review(Integer userid, Integer eventid, String reviewtext) {
         this.userid = userid;
         this.eventid = eventid;
-        this.review = review;
+        this.reviewtext = reviewtext;
     }
     public Integer getRid() {
         return rid;
@@ -40,10 +40,10 @@ public class Review {
         this.eventid = eventid;
     }
     public String getReview() {
-        return review;
+        return reviewtext;
     }
     public void setReview(String review) {
-        this.review = review;
+        this.reviewtext = review;
     }
     @Override
     public String toString() {
