@@ -46,7 +46,14 @@ Returns: 0 if failed, 1 if successful
   
 # Event
 ## Transaction: View all events
-GET:https://events-api-iuta.onrender.com/event/view-all  
+GET:https://events-api-iuta.onrender.com/event/view-all
+Returns: JSON
+
+## Transaction: View all events by an organizer
+GET:https://events-api-iuta.onrender.com/event/view-by-organizer
+Request Body Parameters
+organizerid:Text 
+Returns: JSON
   
 ## Transaction: Add an event
 POST:https://events-api-iuta.onrender.com/event/add   
