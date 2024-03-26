@@ -67,6 +67,14 @@ public class UserService {
 		return "User not found";
 	}
 
+	public String getAUserById(int userid) {
+		User user = userRepo.findById(userid).get();
+		if (user!=null) {
+			return user.toString();
+		}
+		return "User not found";
+	}
+
 	public String updateUserType(String email, String status) {
 		List<User> uList = userRepo.findByEmail(email);
 		System.out.println(uList.isEmpty());

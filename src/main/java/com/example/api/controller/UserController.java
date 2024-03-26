@@ -47,6 +47,11 @@ public class UserController {
         return userService.getAUser(email);
     }
 
+    @PostMapping("/view-by-id") 
+    public String getUser(int userid) {
+        return userService.getAUserById(userid);
+    }
+
     @PutMapping("/update-status")
     public String updateUserType(String email, String status) {
         return userService.updateUserType(email, status);
