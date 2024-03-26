@@ -23,6 +23,7 @@ public class AttendEvent {
         this.userid = userid;
         this.status = status;
         this.isread = 0;
+        this.isreadbyorganizer = 0;
     }
 
     public AttendEvent(Integer eventid, Integer userid, String status, Integer isread) {
