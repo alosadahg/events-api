@@ -27,6 +27,12 @@ POST:https://events-api-iuta.onrender.com/user/view
 Request Body Parameters   
 email:Text  
 Returns: JSON if successful, String if failed  
+
+## Transaction: View user info
+POST:https://events-api-iuta.onrender.com/user/view-by-id  
+Request Body Parameters   
+userid:Text 
+Returns: JSON if successful  
   
 ## Transaction: Update user type
 PUT:https://events-api-iuta.onrender.com/user/update-status  
