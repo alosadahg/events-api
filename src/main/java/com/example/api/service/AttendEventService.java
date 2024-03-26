@@ -110,7 +110,7 @@ public class AttendEventService {
     public int setIsReadByOrganizer(int id, int isread) {
         AttendEvent record = attendeventrepo.findById(id).get();
         if (record != null) {
-            record.setIsread(isread);
+            record.setIsreadbyorganizer(isread);
             attendeventrepo.save(record);
             return 1;
         }
