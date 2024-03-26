@@ -47,7 +47,7 @@ public class AttendEventService {
         if (attendeventrepo.findByEventidAndUseridAndStatus(eventid, userid, "interested").isEmpty()) {
             AttendEvent newRecord = new AttendEvent(eventid, userid, "interested");
             attendeventrepo.save(newRecord);
-            setIsRead(userid.intValue(), eventid.intValue(), "pending", 0);
+            setIsRead(userid.intValue(), eventid.intValue(), "interested", 0);
             return newRecord.toString();
         }
         return "Transaction failed. Already has existing record.";

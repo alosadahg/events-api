@@ -31,6 +31,7 @@ public class AttendEvent {
         this.userid = userid;
         this.status = status;
         this.isread = isread;
+        this.isreadbyorganizer = 0;
     }
     
     public Integer getId() {
