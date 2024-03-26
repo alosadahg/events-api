@@ -138,11 +138,12 @@ userid:Text
 eventid:Text  
 Returns: JSON if successful, String if failed  
 
-## Transaction: User is approved for the event
+## Transaction: Change notified status of user 
 PUT:https://events-api-iuta.onrender.com/attend-event/change-notified  
 Request Body Parameters  
 userid:Text  
 eventid:Text  
+status:Text
 isread:Text(0 if unread, 1 if read)
 Returns: 0 if failed, 1 if successful  
   

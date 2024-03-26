@@ -46,7 +46,7 @@ public class AttendEventService {
         if (attendeventrepo.findByEventidAndUseridAndStatus(eventid, userid, "interested").isEmpty()) {
             AttendEvent newRecord = new AttendEvent(eventid, userid, "interested");
             attendeventrepo.save(newRecord);
-            setIsRead(userid.intValue(), eventid.intValue(), 0);
+            setIsRead(userid.intValue(), eventid.intValue(), "pending",0);
             return newRecord.toString();
         }
         return "Transaction failed. Already has existing record.";
@@ -68,7 +68,7 @@ public class AttendEventService {
                 updatedParticipants[participants.length] = userid;
                 e.setParticipants(updatedParticipants);
                 eventRepo.save(e);
-                setIsRead(userid.intValue(), eventid.intValue(), 0);
+                setIsRead(userid.intValue(), eventid.intValue(), "approved", 0);
             }
             return record.toString();
         }
@@ -96,8 +96,8 @@ public class AttendEventService {
         return 0;
     }
 
-    public int setIsRead(int userid, int eventid, int isread) {
-        AttendEvent record = attendeventrepo.findByEventidAndUserid(eventid, userid).get(0);
+    public int setIsRead(int userid, int eventid, String status, int isread) {
+        AttendEvent record = attendeventrepo.findByEventidAndUseridAndStatus(eventid, userid, status).get(0);
         if (record != null) {
             record.setIsread(isread);
             attendeventrepo.save(record);

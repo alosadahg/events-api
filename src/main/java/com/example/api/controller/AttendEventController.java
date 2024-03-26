@@ -60,7 +60,7 @@ public class AttendEventController {
     }
 
     @PutMapping("/change-notified")
-    public int changeNotified(int userid, int eventid, int isread) {
-        return attendEventService.setIsRead(userid, eventid, isread);
+    public int changeNotified(int userid, int eventid, String status, int isread) {
+        return attendEventService.setIsRead(userid, eventid, status, isread);
     }
 }
