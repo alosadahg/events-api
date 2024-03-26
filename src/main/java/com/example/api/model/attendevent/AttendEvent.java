@@ -15,6 +15,7 @@ public class AttendEvent {
     private Integer userid;
     private String status;
     private Integer isread;
+    private Integer isreadbyorganizer;
     public AttendEvent() {
     }
     public AttendEvent(Integer eventid, Integer userid, String status) {
@@ -30,6 +31,7 @@ public class AttendEvent {
         this.status = status;
         this.isread = isread;
     }
+    
     public Integer getId() {
         return id;
     }
@@ -71,4 +73,10 @@ public class AttendEvent {
     public void setIsread(Integer isread) {
         this.isread = isread;
     }
+	public Integer getIsreadbyorganizer() {
+		return isreadbyorganizer;
+	}
+	public void setIsreadbyorganizer(Integer isreadbyorganizer) {
+		this.isreadbyorganizer = isreadbyorganizer;
+	}
 }

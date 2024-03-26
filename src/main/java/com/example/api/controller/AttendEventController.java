@@ -63,4 +63,9 @@ public class AttendEventController {
     public int changeNotified(int userid, int eventid, String status, int isread) {
         return attendEventService.setIsRead(userid, eventid, status, isread);
     }
+
+    @PutMapping("/organizer-notified")
+    public int changeOrganizerNotified(int id, int isread) {
+        return attendEventService.setIsReadByOrganizer(id, isread);
+    }
 }
