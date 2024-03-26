@@ -1,6 +1,8 @@
 package com.example.api.service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +18,24 @@ public class UserService {
 
 	public List<User> getAllUsers() {
 		List<User> users = userRepo.findAll();
-		return users;
+		return users.stream()
+				.sorted(Comparator.comparingInt(user -> getUserTypeOrder(user.getUser_type())))
+				.collect(Collectors.toList());
+	}
+
+	private int getUserTypeOrder(String userType) {
+		switch (userType) {
+			case "pending":
+				return 0;
+			case "organizer":
+				return 1;
+			case "user":
+				return 2;
+			case "admin":
+				return 3;
+			default:
+				return -1;
+		}
 	}
 
 	public String add(User u) {

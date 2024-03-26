@@ -3,6 +3,8 @@ package com.example.api.service;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.example.api.model.event.Event;
@@ -20,7 +22,7 @@ public class ReviewService {
     private EventRepository eventRepo;
 
     public String getByEID(Integer eid) {
-        List<Review> filtered = reviewRepo.findByEventid(eid);
+        List<Review> filtered = reviewRepo.findByEventid(eid, Sort.by(Direction.DESC, "rid"));
         if (!filtered.isEmpty()) {
             return filtered.toString();
         }

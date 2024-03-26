@@ -143,8 +143,8 @@ PUT:https://events-api-iuta.onrender.com/attend-event/change-notified
 Request Body Parameters  
 userid:Text  
 eventid:Text  
-status:Text
-isread:Text(0 if unread, 1 if read)
+status:Text  
+isread:Text(0 if unread, 1 if read)  
 Returns: 0 if failed, 1 if successful  
   
 ## Transaction: Cancel user interest to attend event

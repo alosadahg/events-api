@@ -1,14 +1,19 @@
 package com.example.api.service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.example.api.model.attendevent.AttendEvent;
 import com.example.api.model.attendevent.AttendEventRepository;
 import com.example.api.model.event.Event;
 import com.example.api.model.event.EventRepository;
+import com.example.api.model.user.User;
 
 @Service
 public class EventService {
@@ -20,8 +25,27 @@ public class EventService {
     private AttendEventRepository attendEventRepo;
 
     public List<Event> getAllEvents() {
-        return eventRepo.findAll();
+        List<Event> events = eventRepo.findAll();
+        return events.stream()
+                .sorted(Comparator.comparingInt((Event event) -> getEventStatusOrder(event.getStatus()))
+                        .thenComparing(Event::getStartdate))
+                .collect(Collectors.toList());
     }
+
+    private int getEventStatusOrder(String status) {
+		switch (status) {
+			case "ongoing":
+				return 0;
+			case "upcoming":
+				return 1;
+			case "cancelled":
+				return 2;
+			case "finished":
+				return 3;
+			default:
+				return -1;
+		}
+	}
 
     public String add(Event e) {
         if(e!=null) {
@@ -96,7 +120,7 @@ public class EventService {
     }
 
     public List<Event> getByOrganizer(Integer organizer) {
-        return eventRepo.findByOrganizer(organizer);
+        return eventRepo.findByOrganizer(organizer, Sort.by(Direction.DESC, "startdate"));
     }
 
     public int deleteEvent(Integer eventid){

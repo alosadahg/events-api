@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.api.model.attendevent.AttendEvent;
@@ -29,9 +30,9 @@ public class AttendEventService {
     }
 
     public List<AttendEvent> getByUser(Integer userid) {
-        return attendeventrepo.findByUserid(userid);
+        Sort sort = Sort.by(Sort.Direction.ASC, "isread");
+        return attendeventrepo.findByUserid(userid, sort);
     }
-    
 
     public List<AttendEvent> getByOrganizer(Integer eventid) {
         List<Event> eventlist = eventService.getByOrganizer(eventid);
@@ -46,7 +47,7 @@ public class AttendEventService {
         if (attendeventrepo.findByEventidAndUseridAndStatus(eventid, userid, "interested").isEmpty()) {
             AttendEvent newRecord = new AttendEvent(eventid, userid, "interested");
             attendeventrepo.save(newRecord);
-            setIsRead(userid.intValue(), eventid.intValue(), "pending",0);
+            setIsRead(userid.intValue(), eventid.intValue(), "pending", 0);
             return newRecord.toString();
         }
         return "Transaction failed. Already has existing record.";
