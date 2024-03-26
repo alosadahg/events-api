@@ -29,8 +29,9 @@ public class AttendEventService {
     }
 
     public List<AttendEvent> getByUser(Integer userid) {
-        return attendeventrepo.findByUseridAndStatusNot(userid, "cancelled");
+        return attendeventrepo.findByUserid(userid);
     }
+    
 
     public List<AttendEvent> getByOrganizer(Integer eventid) {
         List<Event> eventlist = eventService.getByOrganizer(eventid);
