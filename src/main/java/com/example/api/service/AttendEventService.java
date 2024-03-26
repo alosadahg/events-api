@@ -76,22 +76,25 @@ public class AttendEventService {
         return "Transaction failed. No record found.";
     }
 
-    public int cancelAttendInterest(Integer userid, Integer eventid) {
+    public int cancelAttendInterest(int userid, int eventid) {
         AttendEvent record = attendeventrepo.findByEventidAndUserid(eventid, userid).get(0);
         if (record != null) {
             record.setStatus("cancelled");
             record.setIsread(0);
+            record.setIsreadbyorganizer(0);
             attendeventrepo.save(record);
-            Event event = eventRepo.findById(eventid.intValue()).get();
+            Event event = eventRepo.findById(eventid).get();
             Integer[] participants = event.getParticipants();
-            List<Integer> updatedParticipants = new ArrayList<>();
-            for (Integer participant : participants) {
-                if (!participant.equals(userid.intValue())) {
-                    updatedParticipants.add(participant);
+            if (participants != null) {
+                List<Integer> updatedParticipants = new ArrayList<>();
+                for (Integer participant : participants) {
+                    if (!participant.equals(userid)) {
+                        updatedParticipants.add(participant);
+                    }
                 }
+                event.setParticipants(updatedParticipants.toArray(new Integer[0]));
+                eventRepo.save(event);
             }
-            event.setParticipants(updatedParticipants.toArray(new Integer[0]));
-            eventRepo.save(event);
             return 1;
         }
         return 0;

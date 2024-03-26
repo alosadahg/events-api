@@ -55,7 +55,7 @@ public class AttendEventController {
     }
     
     @DeleteMapping("/cancel")
-    public int cancelAttend(Integer userid, Integer eventid) {
+    public int cancelAttend(int userid, int eventid) {
         return attendEventService.cancelAttendInterest(userid, eventid);
     }
 
