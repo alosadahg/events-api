@@ -49,7 +49,7 @@ public class Review {
     public String toString() {
        ObjectMapper objectMapper = new ObjectMapper();
         try {
-            return objectMapper.writeValueAsString(this);
+            return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(this);
         } catch (JsonProcessingException e) {
             e.printStackTrace(); 
             return "transaction failed";

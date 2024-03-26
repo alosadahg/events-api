@@ -13,7 +13,6 @@ import com.example.api.model.attendevent.AttendEvent;
 import com.example.api.model.attendevent.AttendEventRepository;
 import com.example.api.model.event.Event;
 import com.example.api.model.event.EventRepository;
-import com.example.api.model.user.User;
 
 @Service
 public class EventService {
