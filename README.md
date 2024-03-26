@@ -117,12 +117,18 @@ POST:https://events-api-iuta.onrender.com/attend-event/view-by-user
 Request Body Parameters
 userid:Text  
 Returns: JSON
+
+## Transaction: View all user requests by organizer  
+POST:https://events-api-iuta.onrender.com/attend-event/view-by-organizer  
+Request Body Parameters
+organizer:Text  
+Returns: JSON
   
 ## Transaction: User is interested in the event
 POST:https://events-api-iuta.onrender.com/attend-event/interested  
 Request Body Parameters  
 userid:Text  
-eventid:Text
+eventid:Text  
 Returns: JSON if successful, String if failed  
   
 ## Transaction: User is approved for the event
@@ -131,6 +137,14 @@ Request Body Parameters
 userid:Text  
 eventid:Text  
 Returns: JSON if successful, String if failed  
+
+## Transaction: User is approved for the event
+PUT:https://events-api-iuta.onrender.com/attend-event/change-notified  
+Request Body Parameters  
+userid:Text  
+eventid:Text  
+isread:Text(0 if unread, 1 if read)
+Returns: 0 if failed, 1 if successful  
   
 ## Transaction: Cancel user interest to attend event
 DELETE:https://events-api-iuta.onrender.com/attend-event/cancel  

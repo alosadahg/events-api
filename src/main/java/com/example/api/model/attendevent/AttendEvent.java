@@ -14,12 +14,21 @@ public class AttendEvent {
     private Integer eventid;
     private Integer userid;
     private String status;
+    private Integer isread;
     public AttendEvent() {
     }
     public AttendEvent(Integer eventid, Integer userid, String status) {
         this.eventid = eventid;
         this.userid = userid;
         this.status = status;
+        this.isread = 0;
+    }
+
+    public AttendEvent(Integer eventid, Integer userid, String status, Integer isread) {
+        this.eventid = eventid;
+        this.userid = userid;
+        this.status = status;
+        this.isread = isread;
     }
     public Integer getId() {
         return id;
@@ -45,6 +54,7 @@ public class AttendEvent {
     public void setStatus(String status) {
         this.status = status;
     }
+    
     @Override
     public String toString() {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -54,5 +64,11 @@ public class AttendEvent {
             e.printStackTrace(); 
             return "transaction failed";
         }
+    }
+    public Integer getIsread() {
+        return isread;
+    }
+    public void setIsread(Integer isread) {
+        this.isread = isread;
     }
 }

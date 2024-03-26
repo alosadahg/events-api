@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.api.model.attendevent.AttendEvent;
+import com.example.api.model.attendevent.AttendEventRepository;
 import com.example.api.model.event.Event;
 import com.example.api.model.event.EventRepository;
 
@@ -13,6 +15,9 @@ public class EventService {
     
     @Autowired
     private EventRepository eventRepo;
+
+    @Autowired
+    private AttendEventRepository attendEventRepo;
 
     public List<Event> getAllEvents() {
         return eventRepo.findAll();
@@ -32,6 +37,11 @@ public class EventService {
             if(event!=null) {
                 event.setStatus(status);
                 eventRepo.save(event);
+                List<AttendEvent> attendEventList = attendEventRepo.findByEventid(eid);
+                for (AttendEvent attendEvent : attendEventList) {
+                    attendEvent.setIsread(0);
+                    attendEventRepo.save(attendEvent);
+                }
                 return event.toString();
             }
             return "No event record found";

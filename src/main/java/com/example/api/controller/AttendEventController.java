@@ -14,6 +14,9 @@ import com.example.api.service.AttendEventService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 
 @RestController
@@ -38,6 +41,11 @@ public class AttendEventController {
         return attendEventService.getByUser(userid);
     }
 
+    @PostMapping("/view-by-organizer")
+    public List<AttendEvent> getByOrganizer(Integer organizer) {
+        return attendEventService.getByOrganizer(organizer);
+    }
+
     @PostMapping("/interested")
     public String setPending(Integer userid, Integer eventid) {
         return attendEventService.addToPending(userid, eventid);
@@ -51,5 +59,10 @@ public class AttendEventController {
     @DeleteMapping("/cancel")
     public int cancelAttend(Integer userid, Integer eventid) {
         return attendEventService.cancelAttendInterest(userid, eventid);
+    }
+
+    @PutMapping("/change-notified")
+    public int changeNotified(int userid, int eventid, int isread) {
+        return attendEventService.setIsRead(userid, eventid, isread);
     }
 }
