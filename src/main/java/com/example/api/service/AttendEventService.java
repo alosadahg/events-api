@@ -26,7 +26,7 @@ public class AttendEventService {
     private EventService eventService;
 
     public List<AttendEvent> getAll() {
-        return attendeventrepo.findAll();
+        return attendeventrepo.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
     public List<AttendEvent> getByUser(Integer userid) {
