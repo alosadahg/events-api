@@ -55,23 +55,25 @@ public class AttendEventService {
 
     public String addToApproved(Integer userid, Integer eventid) {
         if (!attendeventrepo.findByEventidAndUserid(eventid, userid).isEmpty()) {
-            AttendEvent record = attendeventrepo.findByEventidAndUserid(eventid, userid).get(0);
-            record.setStatus("approved");
-            record.setIsread(0);
-            attendeventrepo.save(record);
-            if (eventid != null) {
-                Event e = eventRepo.findById(eventid).get();
-                if (e.getParticipants() == null) {
-                    e.setParticipants(new Integer[0]);
+            List<AttendEvent> records = attendeventrepo.findByEventidAndUserid(eventid, userid);
+            for (AttendEvent record : records) {
+                record.setStatus("approved");
+                record.setIsread(0);
+                attendeventrepo.save(record);
+                if (eventid != null) {
+                    Event e = eventRepo.findById(eventid).get();
+                    if (e.getParticipants() == null) {
+                        e.setParticipants(new Integer[0]);
+                    }
+                    Integer[] participants = e.getParticipants();
+                    Integer[] updatedParticipants = Arrays.copyOf(participants, participants.length + 1);
+                    updatedParticipants[participants.length] = userid;
+                    e.setParticipants(updatedParticipants);
+                    eventRepo.save(e);
+                    setIsRead(userid.intValue(), eventid.intValue(), "approved", 0);
                 }
-                Integer[] participants = e.getParticipants();
-                Integer[] updatedParticipants = Arrays.copyOf(participants, participants.length + 1);
-                updatedParticipants[participants.length] = userid;
-                e.setParticipants(updatedParticipants);
-                eventRepo.save(e);
-                setIsRead(userid.intValue(), eventid.intValue(), "approved", 0);
             }
-            return record.toString();
+            return "successful";
         }
         return "Transaction failed. No record found.";
     }
