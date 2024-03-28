@@ -9,7 +9,7 @@ public interface AttendEventRepository extends JpaRepository<AttendEvent, Intege
     List<AttendEvent> findByEventid(Integer eventid);
     List<AttendEvent> findByUserid(Integer userid);
     List<AttendEvent> findByUserid(Integer userid, Sort s);
-    List<AttendEvent> findByUseridAndStatusNot(Integer userid, String status);
+    List<AttendEvent> findByUseridAndStatusNot(Integer userid, String status, Sort s);
     List<AttendEvent> findByStatus(String status);
     List<AttendEvent> findByEventidAndUserid(Integer eventid, Integer userid);
     List<AttendEvent> findByEventidAndUseridAndStatus(Integer eventid, Integer userid, String status);

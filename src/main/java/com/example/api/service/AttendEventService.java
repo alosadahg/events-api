@@ -31,7 +31,7 @@ public class AttendEventService {
 
     public List<AttendEvent> getByUser(Integer userid) {
         Sort sort = Sort.by(Sort.Direction.ASC, "isread");
-        return attendeventrepo.findByUserid(userid, sort);
+        return attendeventrepo.findByUseridAndStatusNot(userid, "cancelled", sort);
     }
 
     public List<AttendEvent> getByOrganizer(Integer eventid) {
